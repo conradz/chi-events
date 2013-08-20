@@ -1,19 +1,4 @@
-function flatten(value) {
-    var items = [];
-
-    function add(value) {
-        if (value && typeof value.length === 'number') {
-            for (var i = 0; i < value.length; i++) {
-                add(value[i]);
-            }
-        } else {
-            items.push(value);
-        }
-    }
-
-    add(value);
-    return items;
-}
+var flatten = require('flatten-list');
 
 function on(nodes, event, handler) {
     nodes.forEach(function(node) {

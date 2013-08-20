@@ -26,5 +26,8 @@
   "devDependencies": {
     "tape": "~1.0.4",
     "chi-build": "0.0.1"
+  },
+  "dependencies": {
+    "flatten-list": "~0.0.1"
   }
 }

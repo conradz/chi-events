@@ -2,6 +2,9 @@
 
 Easily manage DOM events.
 
+This module uses Node.js-style modules, for best results use
+[browserify](https://github.com/substack/node-browserify).
+
 ## Example
 
 ```js

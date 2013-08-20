@@ -1,0 +1,30 @@
+{
+  "name": "chi-events",
+  "version": "0.0.0",
+  "description": "Easily manage DOM events",
+  "main": "index.js",
+  "scripts": {
+    "test": "chi-build test",
+    "serve": "chi-build serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conradz/chi-events.git"
+  },
+  "keywords": [
+    "dom",
+    "events",
+    "browser",
+    "event",
+    "chi"
+  ],
+  "author": "Conrad Zimmerman <me@conradz.com>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/conradz/chi-events/issues"
+  },
+  "devDependencies": {
+    "tape": "~1.0.4",
+    "chi-build": "0.0.1"
+  }
+}

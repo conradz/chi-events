@@ -1,5 +1,6 @@
 var test = require('tape'),
-    events = require('./');
+    events = require('./'),
+    document = window.document;
 
 function triggerTest(el) {
     var ev = document.createEvent('Event');

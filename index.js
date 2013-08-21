@@ -1,4 +1,5 @@
-var flatten = require('flatten-list');
+var flatten = require('flatten-list'),
+    document = window.document;
 
 function on(nodes, event, handler) {
     nodes.forEach(function(node) {

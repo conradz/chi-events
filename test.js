@@ -1,7 +1,7 @@
 var test = require('tape'),
     events = require('./');
 
-function trigger(el) {
+function triggerTest(el) {
     var ev = document.createEvent('Event');
     ev.initEvent('test', true, true);
     el.dispatchEvent(ev);
@@ -18,7 +18,7 @@ test('on', function(t) {
             called = true;
         });
 
-        trigger(el);
+        triggerTest(el);
         t.ok(called, 'handler should be called');
         t.end();
     });
@@ -29,7 +29,7 @@ test('on', function(t) {
         events(el)
             .on('test', function() { called = true; })
             .remove();
-        trigger(el);
+        triggerTest(el);
 
         t.notOk(called, 'handler should not be called after it is removed');
         t.end();
@@ -41,9 +41,9 @@ test('on', function(t) {
             c = document.createElement('div'),
             called = 0;
         events(a, [b, c]).on('test', function() { called++; });
-        trigger(a);
-        trigger(b);
-        trigger(c);
+        triggerTest(a);
+        triggerTest(b);
+        triggerTest(c);
 
         t.equal(called, 3);
         t.end();
@@ -62,8 +62,8 @@ test('once', function(t) {
             t.equal(e.target, el);
             called++;
         });
-        trigger(el);
-        trigger(el);
+        triggerTest(el);
+        triggerTest(el);
 
         t.equal(called, 1);
         t.end();
@@ -75,7 +75,7 @@ test('once', function(t) {
         events(el)
             .once('test', function() { called = true; })
             .remove();
-        trigger(el);
+        triggerTest(el);
 
         t.notOk(called, 'handler should not be called');
         t.end();
@@ -86,10 +86,55 @@ test('once', function(t) {
             b = document.createElement('div'),
             called = 0;
         events(a, b).once('test', function() { called++; });
-        trigger(b);
-        trigger(a);
+        triggerTest(b);
+        triggerTest(a);
 
         t.equal(called, 1);
+        t.end();
+    });
+
+    t.end();
+});
+
+test('trigger', function(t) {
+
+    t.test('trigger DOM event', function(t) {
+        var el = document.createElement('div'),
+            called = false;
+        el.addEventListener('click', function() { called = true; }, false);
+
+        events(el).trigger('click');
+        t.ok(called, 'event should be triggered');
+        t.end();
+    });
+
+    t.test('set detail value on event', function(t) {
+        var el = document.createElement('div'),
+            detail = {},
+            called = false;
+        el.addEventListener('click', function(e) {
+            t.equal(detail, e.detail);
+            called = true;
+        });
+        events(el).trigger('click', detail);
+
+        t.ok(called, 'event should be triggered');
+        t.end();
+    });
+
+    t.test('multiple nodes', function(t) {
+        var a = document.createElement('div'),
+            b = document.createElement('div'),
+            results = [];
+
+        function handle() {
+            results.push(this);
+        }
+        a.addEventListener('click', handle, false);
+        b.addEventListener('click', handle, false);
+        events(a, b).trigger('click');
+
+        t.deepEqual(results, [a, b]);
         t.end();
     });
 

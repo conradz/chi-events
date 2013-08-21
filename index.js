@@ -27,6 +27,14 @@ function once(nodes, event, handler) {
     return listener;
 }
 
+function trigger(nodes, event, detail) {
+    var e = document.createEvent('CustomEvent');
+    e.initCustomEvent(event, true, true, detail);
+    nodes.forEach(function(node) {
+        node.dispatchEvent(e);
+    });
+}
+
 function Events(nodes) {
     this.nodes = nodes;
 }
@@ -37,6 +45,10 @@ Events.prototype.on = function(event, handler) {
 
 Events.prototype.once = function(event, handler) {
     return once(this.nodes, event, handler);
+};
+
+Events.prototype.trigger = function(event, detail) {
+    return trigger(this.nodes, event, detail);
 };
 
 function events() {

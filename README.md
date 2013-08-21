@@ -27,6 +27,10 @@ events(button).once('click', function() {
     // Only invoked once at most
 });
 
+// Triggering an event
+// Triggers the 'click' event with event.detail == 'test'
+events(button).trigger('click', 'test');
+
 // Use multiple DOM nodes
 events(document.querySelectorAll('a')).on('click', function(e) {
     e.preventDefault();
@@ -51,3 +55,9 @@ Adds an event listener to all the DOM nodes. Returns an object that contains a
 Adds an event listener to all the DOM nodes. The handler function will be only
 called one time at most. The first time the event is triggered, the listener
 will be removed. Return value is the same as `#on`.
+
+### `trigger(event, [detail])`
+
+Creates an event with the event name `event` and dispatches the event to all the
+DOM nodes. If `detail` is provided, the `detail` property of the event is set to
+this value.

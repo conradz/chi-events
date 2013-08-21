@@ -1,5 +1,10 @@
 # chi-events
 
+[![NPM](https://nodei.co/npm/chi-events.png?compact=true)](https://nodei.co/npm/chi-events/)
+
+[![Build Status](https://travis-ci.org/conradz/chi-events.png?branch=master)](https://travis-ci.org/conradz/chi-events)
+[![Dependency Status](https://gemnasium.com/conradz/chi-classes.png)](https://gemnasium.com/conradz/chi-classes)
+
 Easily manage DOM events.
 
 This module uses Node.js-style modules, for best results use

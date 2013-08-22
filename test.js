@@ -102,22 +102,9 @@ test('trigger', function(t) {
     t.test('trigger DOM event', function(t) {
         var el = document.createElement('div'),
             called = false;
+
         el.addEventListener('click', function() { called = true; }, false);
-
         events(el).trigger('click');
-        t.ok(called, 'event should be triggered');
-        t.end();
-    });
-
-    t.test('set detail value on event', function(t) {
-        var el = document.createElement('div'),
-            detail = {},
-            called = false;
-        el.addEventListener('click', function(e) {
-            t.equal(detail, e.detail);
-            called = true;
-        });
-        events(el).trigger('click', detail);
 
         t.ok(called, 'event should be triggered');
         t.end();

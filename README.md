@@ -61,7 +61,7 @@ Adds an event listener to all the DOM nodes. The handler function will be only
 called one time at most. The first time the event is triggered, the listener
 will be removed. Return value is the same as `#on`.
 
-### `trigger(event)`
+### `#trigger(event)`
 
 Creates an event with the event name `event` and dispatches the event to all the
 DOM nodes.

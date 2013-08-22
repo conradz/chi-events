@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/chi-events.png?compact=true)](https://nodei.co/npm/chi-events/)
 
-[![Build Status](https://travis-ci.org/conradz/chi-events.png?branch=master)](https://travis-ci.org/conradz/chi-events)
+[![Build Status](https://drone.io/github.com/conradz/chi-events/status.png)](https://drone.io/github.com/conradz/chi-events/latest)
 [![Dependency Status](https://gemnasium.com/conradz/chi-classes.png)](https://gemnasium.com/conradz/chi-classes)
 
 Easily manage DOM events.

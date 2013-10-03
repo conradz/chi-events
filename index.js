@@ -55,7 +55,8 @@ function once(nodes, event, handler) {
         handler.call(this, e);
     }
 
-    return (listener = on(nodes, event, onceHandler));
+    listener = on(nodes, event, onceHandler);
+    return listener;
 }
 
 function trigger(nodes, event) {

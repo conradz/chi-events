@@ -52,5 +52,5 @@ function fix(trigger) {
         return trigger(nodes, event);
     }
 
-    return fixedTrigged;
+    return fixedTrigger;
 }

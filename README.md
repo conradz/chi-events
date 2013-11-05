@@ -42,6 +42,13 @@ events(button).trigger('click');
 events(document.querySelectorAll('a')).on('click', function(e) {
     e.preventDefault();
 });
+
+// Use event delegation to listen for events on child nodes
+events(container)
+    .children('button') // Can use CSS selector or function
+    .on('click', function() {
+        // `this` is the button element
+    });
 ```
 
 ## Reference
@@ -67,3 +74,18 @@ will be removed. Return value is the same as `#on`.
 
 Creates an event with the event name `event` and dispatches the event to all the
 DOM nodes.
+
+### `#children(filter)`
+
+Returns a new object that can be used to listen to events that occur in the
+children of the nodes. The returned object contains the `#on` and `#once`
+methods that have the same usage, but use event delegation to listen only for
+events that occur in child nodes that match `filter`. `filter` can be a CSS
+selector string or a function that takes a node and returns a truthy value if
+events on that node should be handled.
+
+The context (the `this` object) in any attached event handlers will be the node
+that the event bubbled from that matches `filter`.
+
+Note that since this listens for bubbled events, it will include child nodes
+that are added after the event listener has been attached.

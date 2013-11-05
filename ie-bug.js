@@ -1,3 +1,5 @@
+'use strict';
+
 // Fix bug that occurs in at least IE 9 and 10
 // Some newly-created nodes will not fire events until they are added to an
 // element. After they are added to an element, they will work even after they

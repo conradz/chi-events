@@ -1,7 +1,10 @@
+'use strict';
+
 var flatten = require('flatten-list'),
     forEach = require('mout/array/forEach'),
     ieBug = require('./ie-bug'),
-    document = window.document;
+    document = window.document,
+    DelegateEvents = require('./delegate');
 
 if (ieBug.check(trigger)) {
     trigger = ieBug.fix(trigger);
@@ -20,12 +23,23 @@ Events.prototype.on = function(event, handler) {
     return on(this.nodes, event, handler);
 };
 
-Events.prototype.once = function(event, handler) {
-    return once(this.nodes, event, handler);
-};
-
 Events.prototype.trigger = function(event, detail) {
     return trigger(this.nodes, event, detail);
+};
+
+Events.prototype.once = function(event, handler) {
+    var ref = this.on(event, wrapped);
+    return ref;
+
+    function wrapped(e) {
+        /*jshint validthis: true */
+        ref.remove();
+        return handler.call(this, e);
+    }
+};
+
+Events.prototype.children = function(filter) {
+    return new DelegateEvents(this, filter);
 };
 
 function on(nodes, event, handler) {
@@ -46,17 +60,6 @@ function remove(nodes, event, handler) {
     forEach(nodes, function(node) {
         node.removeEventListener(event, handler, false);
     });
-}
-
-function once(nodes, event, handler) {
-    var listener;
-    function onceHandler(e) {
-        listener.remove();
-        handler.call(this, e);
-    }
-
-    listener = on(nodes, event, onceHandler);
-    return listener;
 }
 
 function trigger(nodes, event) {

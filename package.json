@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "hut-build test",
-    "serve": "hut-build serve",
+    "start": "hut-build serve",
     "lint": "hut-build lint"
   },
   "repository": {
@@ -26,10 +26,13 @@
   },
   "devDependencies": {
     "tape": "~1.1.1",
-    "hut-build": "~0.1.4"
+    "hut-build": "~0.2.0"
   },
   "dependencies": {
     "flatten-list": "~0.0.1",
-    "mout": "~0.7.1"
+    "mout": "~0.7.1",
+    "chi-matches": "0.0.1",
+    "sinon": "~1.7.3",
+    "chi-create": "0.0.2"
   }
 }

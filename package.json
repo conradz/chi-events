@@ -1,6 +1,6 @@
 {
   "name": "chi-events",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easily manage DOM events",
   "main": "index.js",
   "scripts": {

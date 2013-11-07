@@ -32,7 +32,6 @@
     "flatten-list": "~0.0.1",
     "mout": "~0.7.1",
     "chi-matches": "0.0.1",
-    "sinon": "~1.7.3",
     "chi-create": "0.0.2"
   }
 }

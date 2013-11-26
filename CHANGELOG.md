@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+ * Fix borked v0.1.2 release (git tag out of sync with npm)
+
 ## 0.1.2
 
  * Updated `mout` to v0.8.0

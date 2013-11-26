@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+ * Updated `mout` to v0.8.0
+ * Dropped unneeded dependency on `chi-create`
+
 ## 0.1.1
 
  * Remove unneeded `sinon` dependency
